@@ -1,0 +1,25 @@
+body, html{
+    height: 100%;
+}
+
+body{
+    background-image: url(assets/background.jpg);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+.searchBox{
+    width: fit-content;
+    border: 2px solid rgb(231, 11, 11);
+    margin: auto;
+}
+
+button{
+    margin-top: 10px;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+}
