@@ -7,12 +7,38 @@
     <link href = "style.css" rel="stylesheet">
 </head>
 <body>
-    <background></background>
-    <div class="searchBox">
-    <img src="" id="img"> <br>
-    <input id="search" type="text" placeholder = "Enter The Name"> <br>
-    <button type="submit" onclick='getPokemonName()'>Searh</button>
-    <p id="result"></p>
+    <div class="container">
+        <div class="searchBox">
+            <input id="search" type="text" placeholder = "Enter The Name">
+            <button type="submit" onclick='getPokemonName()' class="searchButton"></button>
+        </div>
+        <div class="card-container">
+        <div class="card">
+            <div class="front-card">
+                <div class="img">
+                    <img class="male" src="assets/search.png">
+                </div>
+                <h2 id="name">PIKACHU</h2>
+                <div class="stats">
+                    <p id="height">Height: 4</p>
+                    <p id="weight">Weight: 60</p>
+                </div>
+                <div class="extra">
+                    <div class="ability">
+                        <h3 id="abilities">Abilities</h3>
+                        <p id="a1">->Static</p>
+                        <p id="a2">->Lightining Rod</p>
+                    </div>
+                    <div class="sound">
+                        <h4 id="sound">Sound</h4>
+                        <img src="assets/play.png" class="play">
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="back-card"></div>
+        </div>
+        </div>
     </div>
 </body>
 <script src="index.js"></script>
