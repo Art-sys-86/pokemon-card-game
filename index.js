@@ -1,23 +1,32 @@
-const enter = document.getElementById('result');
 const img = document.getElementById('img');
+const audio = document.getElementById('pokemon-sound');
+async function getPokemon() {
+const search = document.getElementById('search').value.toLowerCase();
+const name = document.getElementById('name');
 const weight = document.getElementById('weight');
 const height = document.getElementById('height');
 const abilityOne = document.getElementById('a1');
 const abilityTwo = document.getElementById('a2');
 
-async function getPokemonName() {
-const search = document.getElementById('search').value;
-const name = document.getElementById('name').value;
     try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${search}`);
         const data = await response.json();
-        const name = data.name;
-        const capitalized = name.charAt(0).toUpperCase()+name.slice(1);
+        console.log(data);
+        const pokemonName = data.name;
         const sprite = data.sprites.front_default;
-        name.textContent = `${capitalized}`;
+        const cry = data.cries.latest;
+        audio.src = cry;
+        name.textContent = pokemonName.toUpperCase();
+        weight.textContent = `Weight: ${data.weight}`;
+        height.textContent = `Height: ${data.height}`;
+        abilityOne.textContent =`-> ${data.abilities[0].ability.name}`;
+        abilityTwo.textContent = `-> ${data.abilities[1].ability.name}`;
         img.src = sprite;
     } catch (error) {
         console.error(error);
-        enter.textContent = `Invalid Name. Please check your spelling.`
     }
+}
+
+function playAudio(){
+    audio.play();
 }
